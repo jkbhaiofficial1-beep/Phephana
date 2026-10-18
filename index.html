@@ -1,0 +1,803 @@
+
+<!DOCTYPE html>
+<html lang="hi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aapna Phephana Official - Local Video Promotion</title>
+  
+  <!-- Google Fonts: Poppins & Hind (for Devanagari Hindi support) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome for exact iconography -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              red: '#D91616',
+              darkRed: '#B50E0E',
+              yellow: '#F59E0B',
+              amber: '#FBBF24',
+              cream: '#FFFBEF',
+              bgLight: '#FCF8ED',
+              dark: '#111827',
+              gray: '#4B5563'
+            }
+          },
+          fontFamily: {
+            sans: ['Hind', 'Poppins', 'sans-serif'],
+            display: ['Poppins', 'Hind', 'sans-serif']
+          },
+          boxShadow: {
+            'card': '0 20px 40px -15px rgba(217, 22, 22, 0.12), 0 0 25px rgba(0,0,0,0.06)',
+            'floating': '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05)',
+            'glow-red': '0 10px 30px -5px rgba(217, 22, 22, 0.4)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Hind', 'Poppins', sans-serif;
+      background-color: #FFFDF7;
+      color: #1F2937;
+      overflow-x: hidden;
+    }
+    
+    .hero-badge-pill {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(229, 231, 235, 0.8);
+    }
+
+    .curve-decor {
+      border-radius: 40px;
+    }
+
+    /* Hand-drawn style pointer arrow */
+    .drawn-arrow {
+      position: absolute;
+      width: 55px;
+      height: 45px;
+      stroke: #D91616;
+      stroke-width: 3;
+      fill: none;
+      stroke-linecap: round;
+      transform: rotate(-10deg);
+    }
+
+    /* Subtle pulse animation for special offer badge */
+    @keyframes pulse-soft {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    .animate-badge {
+      animation: pulse-soft 2.5s infinite ease-in-out;
+    }
+
+    /* Floating icon animation */
+    @keyframes float-icon {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+    .floating-anim-1 { animation: float-icon 3s ease-in-out infinite; }
+    .floating-anim-2 { animation: float-icon 3.6s ease-in-out infinite 0.5s; }
+    .floating-anim-3 { animation: float-icon 4s ease-in-out infinite 1s; }
+    .floating-anim-4 { animation: float-icon 3.2s ease-in-out infinite 1.5s; }
+  </style>
+</head>
+<body class="bg-[#FFFDF6] text-gray-800 antialiased selection:bg-brand-red selection:text-white">
+
+  <!-- Top Navigation Header -->
+  <header class="sticky top-0 z-40 bg-[#FFFDF6]/90 backdrop-blur-md border-b border-amber-100/60 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-2 group">
+        <div class="leading-tight">
+          <div class="text-xs font-bold text-gray-700 tracking-wider">Aapna</div>
+          <div class="text-2xl font-black text-brand-red tracking-tight flex items-center gap-1">
+            Phephana
+          </div>
+          <span class="inline-block bg-[#F59E0B] text-black text-[10px] font-extrabold px-2 py-0.5 rounded-full mt-0.5 tracking-wide shadow-xs">
+            Official
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold text-gray-700">
+        <a href="#home" class="text-brand-red relative pb-1 border-b-2 border-brand-red font-bold">Home</a>
+        <a href="#services" class="hover:text-brand-red transition-colors">Services</a>
+        <a href="#work" class="hover:text-brand-red transition-colors">Work</a>
+        <a href="#pricing" class="hover:text-brand-red transition-colors">Pricing</a>
+        <a href="#contact" class="hover:text-brand-red transition-colors">Contact</a>
+      </nav>
+
+      <!-- CTA Book Now Header Button -->
+      <div class="hidden sm:flex items-center">
+        <a href="https://rzp.io/rzp/ak4CoCa" target="_blank" class="bg-brand-red hover:bg-brand-darkRed text-white text-sm font-bold px-6 py-2.5 rounded-full shadow-lg shadow-brand-red/25 hover:shadow-brand-red/40 transition-all flex items-center gap-2">
+          <i class="fa-solid fa-bolt-lightning text-xs text-amber-300"></i>
+          <span>Book Now</span>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobileMenuBtn" class="md:hidden text-gray-800 p-2 focus:outline-none" aria-label="Toggle Menu">
+        <i class="fa-solid fa-bars text-xl" id="menuIcon"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-amber-100 px-6 py-4 space-y-3 shadow-xl">
+      <a href="#home" class="block font-bold text-brand-red mobile-link">Home</a>
+      <a href="#services" class="block font-medium text-gray-700 hover:text-brand-red mobile-link">Services</a>
+      <a href="#work" class="block font-medium text-gray-700 hover:text-brand-red mobile-link">Work</a>
+      <a href="#pricing" class="block font-medium text-gray-700 hover:text-brand-red mobile-link">Pricing</a>
+      <a href="#contact" class="block font-medium text-gray-700 hover:text-brand-red mobile-link">Contact</a>
+      <a href="https://rzp.io/rzp/ak4CoCa" target="_blank" class="block w-full text-center bg-brand-red text-white py-2.5 rounded-full font-bold shadow-md mobile-link">
+        Book Now (₹1,000)
+      </a>
+    </div>
+  </header>
+
+  <section id="home" class="relative pt-6 pb-14 md:py-16 overflow-hidden">
+    <!-- Subtle background radial glow -->
+    <div class="absolute -top-40 -left-40 w-96 h-96 bg-amber-200/40 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-1/3 -right-32 w-80 h-80 bg-red-200/30 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        
+        <!-- Hero Left Column: Text & Features -->
+        <div class="lg:col-span-7 space-y-6 z-10 text-center lg:text-left">
+          
+          <!-- Category Pill -->
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full hero-badge-pill text-xs font-semibold text-gray-800 shadow-sm">
+            <span class="w-2.5 h-2.5 rounded-full bg-brand-red animate-ping"></span>
+            <span>Local Shop</span>
+            <span class="text-gray-400">•</span>
+            <span>Local Growth</span>
+            <span class="text-gray-400">•</span>
+            <span class="font-bold">Aapna Phephana</span>
+          </div>
+
+          <!-- Main Bold Headline -->
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-950 leading-[1.15] tracking-tight">
+            आपकी दुकान,<br/>
+            <span class="text-brand-red">पूरे फेफाना की नज़र में</span>
+          </h1>
+
+          <!-- Subheadline -->
+          <p class="text-base sm:text-lg text-gray-700 max-w-xl mx-auto lg:mx-0 font-medium leading-relaxed">
+            <span class="font-bold text-gray-900">Professional Video Promotion</span> से अपनी Shop, Business या Service को पूरे फेफाना और आसपास के लोगों तक पहुँचाएं।
+          </p>
+
+          <!-- 3 Feature Chips (Customers, Reach, Business Identity) -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+            
+            <!-- Chip 1 -->
+            <div class="flex items-center gap-3 bg-white/90 p-3 rounded-2xl border border-amber-200/70 shadow-sm hover:shadow-md transition-shadow">
+              <div class="w-11 h-11 rounded-xl bg-amber-400/25 flex items-center justify-center text-amber-600 text-lg flex-shrink-0">
+                <i class="fa-solid fa-users"></i>
+              </div>
+              <div class="text-left">
+                <p class="text-xs text-gray-500 font-semibold">ज़्यादा</p>
+                <p class="text-sm font-bold text-gray-900">Customers</p>
+              </div>
+            </div>
+
+            <!-- Chip 2 -->
+            <div class="flex items-center gap-3 bg-white/90 p-3 rounded-2xl border border-amber-200/70 shadow-sm hover:shadow-md transition-shadow">
+              <div class="w-11 h-11 rounded-xl bg-amber-400/25 flex items-center justify-center text-amber-600 text-lg flex-shrink-0">
+                <i class="fa-solid fa-chart-simple"></i>
+              </div>
+              <div class="text-left">
+                <p class="text-xs text-gray-500 font-semibold">ज़्यादा</p>
+                <p class="text-sm font-bold text-gray-900">Reach</p>
+              </div>
+            </div>
+
+            <!-- Chip 3 -->
+            <div class="flex items-center gap-3 bg-white/90 p-3 rounded-2xl border border-amber-200/70 shadow-sm hover:shadow-md transition-shadow">
+              <div class="w-11 h-11 rounded-xl bg-amber-400/25 flex items-center justify-center text-amber-600 text-lg flex-shrink-0">
+                <i class="fa-solid fa-store"></i>
+              </div>
+              <div class="text-left">
+                <p class="text-xs text-gray-500 font-semibold">आपके Business</p>
+                <p class="text-sm font-bold text-gray-900">की पहचान</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Hero Action Buttons -->
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+            <!-- Red Primary Action: Direct Payment Page -->
+            <a href="https://rzp.io/rzp/ak4CoCa" 
+               target="_blank"
+               id="heroBookBtn"
+               class="w-full sm:w-auto bg-brand-red hover:bg-brand-darkRed text-white px-8 py-4 rounded-2xl shadow-glow-red hover:shadow-lg transition-all flex items-center justify-between sm:justify-center gap-4 group">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-xl">
+                  <i class="fa-solid fa-bolt-lightning text-amber-300"></i>
+                </div>
+                <div class="text-left leading-tight">
+                  <div class="font-black text-base">अभी Book करें</div>
+                  <div class="text-xs text-amber-200 font-semibold">₹1,000 में पूरा पैकेज</div>
+                </div>
+              </div>
+              <i class="fa-solid fa-chevron-right text-sm group-hover:translate-x-1.5 transition-transform"></i>
+            </a>
+
+            <!-- Instagram Sample Reels Button (Direct to Profile) -->
+            <a href="https://www.instagram.com/_aapna_phephana_?dlrf=MXNob3NjcmNydWJsbQ==" 
+               target="_blank"
+               id="heroInstagramBtn"
+               class="w-full sm:w-auto bg-gradient-to-r from-amber-500 via-rose-500 to-purple-600 hover:opacity-95 text-white px-7 py-3.5 rounded-2xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-3 group">
+              <div class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-lg">
+                <i class="fa-brands fa-instagram"></i>
+              </div>
+              <div class="text-left leading-tight">
+                <div class="font-bold text-sm">Sample Reels देखें</div>
+                <div class="text-[11px] text-pink-100 font-medium">@_aapna_phephana_ पर</div>
+              </div>
+              <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-80 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Hero Right Column: Dynamic Visual Composition -->
+        <div class="lg:col-span-5 relative mt-6 lg:mt-0">
+          
+          <!-- Handwritten Note & Arrow in Header visual -->
+          <div class="absolute -top-7 right-4 z-20 hidden sm:block text-right">
+            <span class="inline-block text-gray-900 font-extrabold text-sm sm:text-base leading-snug">
+              आपके Business<br/>की कहानी, हमारी Video में
+            </span>
+            <div class="relative w-16 h-8 ml-auto">
+              <!-- SVG Curvy Red Arrow -->
+              <svg class="w-12 h-10 text-brand-red ml-auto -rotate-12" viewBox="0 0 50 40" fill="none" stroke="currentColor">
+                <path d="M5 5 C 20 2, 38 12, 40 30" stroke-width="3" stroke-linecap="round"/>
+                <path d="M30 28 L 40 30 L 42 20" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Main Composite Image Container -->
+          <div class="relative mx-auto max-w-md lg:max-w-none rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-gradient-to-tr from-amber-100 to-orange-50">
+            <!-- Simulated Shooting Session Photo -->
+            <img 
+              src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=1000&auto=format&fit=crop" 
+              alt="Professional Video Creator Shooting Shop" 
+              class="w-full h-[450px] sm:h-[490px] object-cover object-center filter brightness-[0.97]"
+              onerror="this.src='https://placehold.co/600x700/fecdd3/991b1b?text=Video+Shoot+Phephana'"
+            />
+
+            <!-- Dark Overlay for text readability -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20"></div>
+
+            <!-- In-Image Brand Badge on Creator's Shirt / Corner -->
+            <div class="absolute bottom-6 left-6 z-10 bg-black/60 backdrop-blur-md border border-white/20 p-3.5 rounded-2xl text-white">
+              <div class="text-xs uppercase tracking-wider text-gray-300 font-semibold">Aapna</div>
+              <div class="text-xl font-black text-white leading-none">Phephana</div>
+              <span class="inline-block bg-[#F59E0B] text-black text-[10px] font-black px-2 py-0.5 rounded-full mt-1.5">
+                Official
+              </span>
+            </div>
+
+            <!-- Floating Video Rig Badge -->
+            <div class="absolute top-1/3 right-4 bg-white/95 backdrop-blur-md rounded-2xl p-2.5 shadow-xl border border-amber-200/80 max-w-[150px] text-center hidden sm:block">
+              <div class="relative w-full h-16 rounded-lg overflow-hidden bg-gray-900 mb-1.5 flex items-center justify-center">
+                <i class="fa-solid fa-video text-amber-400 text-xl animate-pulse"></i>
+                <span class="absolute top-1 left-1.5 flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-red-600"></span>
+                </span>
+                <span class="absolute bottom-1 right-1.5 text-[8px] text-white font-mono bg-black/50 px-1 rounded">REC</span>
+              </div>
+              <p class="text-[11px] font-bold text-gray-800 leading-tight">4K Pro Shooting</p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Offer & Promotion Package Section -->
+  <section id="services" class="py-16 bg-[#FFFDF6] relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+        <!-- Left Visual Side: Dual Phone Mockups & Social Icons -->
+        <div class="lg:col-span-6 order-2 lg:order-1 relative">
+          
+          <!-- Category Indicator -->
+          <div class="mb-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white text-xs font-semibold text-gray-800 border border-gray-200 shadow-xs">
+            <span class="w-2.5 h-2.5 rounded-full bg-brand-red"></span>
+            <span>Our Promotion Package</span>
+          </div>
+
+          <!-- Section Heading -->
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-950 leading-tight mb-3">
+            बस <span class="text-brand-red">₹1,000</span> में<br/>
+            Complete Video Promotion
+          </h2>
+          
+          <p class="text-gray-600 font-medium text-base mb-8 max-w-lg">
+            आपकी दुकान के लिए <strong class="text-gray-900 font-bold">Professional शूटिंग, एडिटिंग और 15 दिनों का कोलैब</strong>, ताकि आपकी दुकान ज्यादा लोगों तक पहुंचें।
+          </p>
+
+          <!-- Interactive Mobile Mockup Container with Floating Social Icons -->
+          <div class="relative max-w-md mx-auto lg:mx-0 pt-4 pb-8 flex justify-center items-center">
+            
+            <!-- Left Floating Social Icons Column -->
+            <div class="absolute -left-3 sm:-left-6 top-8 flex flex-col gap-3.5 z-20">
+              
+              <!-- Instagram -->
+              <div class="floating-anim-1 w-11 h-11 rounded-2xl bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 flex items-center justify-center text-white text-xl shadow-lg shadow-pink-500/20">
+                <i class="fa-brands fa-instagram"></i>
+              </div>
+
+              <!-- Facebook -->
+              <div class="floating-anim-2 w-11 h-11 rounded-2xl bg-blue-600 flex items-center justify-center text-white text-xl shadow-lg shadow-blue-500/20">
+                <i class="fa-brands fa-facebook-f"></i>
+              </div>
+
+              <!-- YouTube -->
+              <div class="floating-anim-3 w-11 h-11 rounded-2xl bg-red-600 flex items-center justify-center text-white text-xl shadow-lg shadow-red-500/20">
+                <i class="fa-brands fa-youtube"></i>
+              </div>
+
+              <!-- Reels Icon -->
+              <div class="floating-anim-4 w-11 h-11 rounded-2xl bg-gradient-to-br from-pink-600 to-purple-700 flex items-center justify-center text-white text-lg shadow-lg">
+                <i class="fa-solid fa-clapperboard"></i>
+              </div>
+
+            </div>
+
+            <!-- Phone Mockup 1 (Primary Front) -->
+            <div class="relative w-52 sm:w-60 h-[380px] sm:h-[430px] rounded-[38px] p-2.5 bg-gray-900 shadow-2xl border-4 border-gray-800 z-10 transform -rotate-3 hover:rotate-0 transition-transform duration-300">
+              <!-- Notch/Speaker -->
+              <div class="absolute top-4 left-1/2 -translate-x-1/2 w-20 h-4 bg-gray-900 rounded-full z-20"></div>
+
+              <!-- Screen Inner -->
+              <div class="w-full h-full rounded-[30px] overflow-hidden relative bg-black">
+                <img 
+                  src="https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?q=80&w=700&auto=format&fit=crop" 
+                  alt="Clothing Store Reel" 
+                  class="w-full h-full object-cover"
+                  onerror="this.src='https://placehold.co/400x700/f87171/ffffff?text=Cloth+Store+Reel'"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                
+                <!-- Reel Engagement Info -->
+                <div class="absolute bottom-4 left-3 right-3 text-white text-left">
+                  <div class="bg-brand-red/90 text-white font-bold text-[11px] px-2.5 py-1 rounded-md inline-block mb-1.5">
+                    आपकी दुकान अब Online
+                  </div>
+                  <p class="text-xs font-semibold text-gray-200">हज़ारों लोगों तक</p>
+                  
+                  <div class="flex items-center gap-2 mt-2 pt-1 border-t border-white/20 text-[11px] text-gray-300">
+                    <span class="flex items-center gap-1 font-bold text-white">
+                      <i class="fa-solid fa-play text-[9px]"></i> 2.4M Views
+                    </span>
+                    <span>• Phephana</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Phone Mockup 2 (Behind slightly angled) -->
+            <div class="relative -ml-16 sm:-ml-20 w-48 sm:w-56 h-[350px] sm:h-[400px] rounded-[34px] p-2 bg-gray-800 shadow-xl border-2 border-gray-700 transform rotate-6 hover:rotate-3 transition-transform duration-300">
+              <div class="w-full h-full rounded-[26px] overflow-hidden relative bg-black">
+                <img 
+                  src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=700&auto=format&fit=crop" 
+                  alt="Local Shop Showroom" 
+                  class="w-full h-full object-cover"
+                  onerror="this.src='https://placehold.co/400x700/fbbf24/111827?text=Retail+Shop'"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                <div class="absolute bottom-4 left-3 text-white text-left">
+                  <p class="text-[11px] font-bold text-amber-300">Local Business</p>
+                  <p class="text-[10px] text-gray-200">को Digital पहचान</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Floating Notification Heart/Comment Pill -->
+            <div class="absolute top-10 right-2 sm:right-6 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-full shadow-lg border border-amber-100 flex items-center gap-1.5 text-xs font-bold text-gray-800 z-20">
+              <span class="text-brand-red text-sm"><i class="fa-solid fa-heart"></i></span>
+              <span>15K+ Likes</span>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Right Side: Highlighted Special Offer Card -->
+        <div id="pricing" class="lg:col-span-6 order-1 lg:order-2">
+          
+          <div class="relative bg-white rounded-[32px] p-6 sm:p-9 shadow-card border border-amber-200/90 relative">
+            
+            <!-- Top Floating Red Badge -->
+            <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-brand-red text-white text-xs font-black tracking-wide uppercase px-5 py-1.5 rounded-full shadow-md flex items-center gap-1.5 animate-badge whitespace-nowrap">
+              <i class="fa-solid fa-circle-dot text-amber-300 text-[10px]"></i>
+              <span>Special Offer</span>
+              <i class="fa-solid fa-crown text-amber-300 text-xs"></i>
+            </div>
+
+            <!-- Big Price -->
+            <div class="text-center pt-3 pb-6">
+              <div class="text-5xl sm:text-6xl font-black text-brand-red tracking-tight flex items-center justify-center">
+                ₹1,000
+              </div>
+              <p class="text-gray-800 font-bold text-base sm:text-lg mt-1">
+                Complete Promotion Package
+              </p>
+            </div>
+
+            <!-- Package Breakdown List -->
+            <div class="space-y-4 mb-8">
+              
+              <!-- Item 1: Shooting -->
+              <div class="flex items-start gap-4 p-3.5 rounded-2xl bg-amber-50/70 border border-amber-100/90 hover:bg-amber-50 transition-colors">
+                <div class="w-12 h-12 rounded-xl bg-amber-400 flex items-center justify-center text-gray-900 text-xl flex-shrink-0 shadow-xs">
+                  <i class="fa-solid fa-video"></i>
+                </div>
+                <div>
+                  <h4 class="font-extrabold text-gray-900 text-base leading-snug">Video Shooting</h4>
+                  <p class="text-sm text-gray-600 mt-0.5 font-medium">आपकी दुकान पर आकर Professional शूटिंग</p>
+                </div>
+              </div>
+
+              <!-- Item 2: Editing -->
+              <div class="flex items-start gap-4 p-3.5 rounded-2xl bg-amber-50/70 border border-amber-100/90 hover:bg-amber-50 transition-colors">
+                <div class="w-12 h-12 rounded-xl bg-amber-400 flex items-center justify-center text-gray-900 text-xl flex-shrink-0 shadow-xs">
+                  <i class="fa-solid fa-scissors"></i>
+                </div>
+                <div>
+                  <h4 class="font-extrabold text-gray-900 text-base leading-snug">Video Editing</h4>
+                  <p class="text-sm text-gray-600 mt-0.5 font-medium">आकर्षक और Engaging एडिटिंग म्यूजिक के साथ</p>
+                </div>
+              </div>
+
+              <!-- Item 3: Collaboration -->
+              <div class="flex items-start gap-4 p-3.5 rounded-2xl bg-amber-50/70 border border-amber-100/90 hover:bg-amber-50 transition-colors">
+                <div class="w-12 h-12 rounded-xl bg-amber-400 flex items-center justify-center text-gray-900 text-xl flex-shrink-0 shadow-xs">
+                  <i class="fa-solid fa-users"></i>
+                </div>
+                <div>
+                  <h4 class="font-extrabold text-gray-900 text-base leading-snug">15 दिनों का Collaboration</h4>
+                  <p class="text-sm text-gray-600 mt-0.5 font-medium">हमारे Instagram / Facebook पेज पर 15 दिनों तक आपकी Shop का प्रमोशन</p>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Big Booking CTA inside the Card -->
+            <a href="https://rzp.io/rzp/ak4CoCa" 
+               target="_blank"
+               class="w-full bg-brand-red hover:bg-brand-darkRed text-white py-4 px-6 rounded-2xl font-black text-lg flex items-center justify-center gap-3 shadow-glow-red hover:shadow-xl transition-all transform hover:-translate-y-0.5 active:translate-y-0">
+              <i class="fa-solid fa-bolt-lightning text-amber-300 text-xl"></i>
+              <span>अभी Book करें – ₹1,000</span>
+              <i class="fa-solid fa-chevron-right text-sm ml-1"></i>
+            </a>
+
+            <!-- Subtext Trust -->
+            <p class="text-center text-xs text-gray-500 font-semibold mt-3">
+              <i class="fa-solid fa-shield-halved text-amber-500 mr-1"></i> 100% Safe Razorpay Payment • No Hidden Fees
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- How It Works Section: 4 Steps -->
+  <section id="work" class="py-14 bg-white/70 border-t border-amber-100/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="mb-10 text-center sm:text-left">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-100/60 text-xs font-semibold text-gray-800 mb-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-brand-red"></span>
+          <span>How It Works?</span>
+        </div>
+        <h3 class="text-3xl sm:text-4xl font-black text-gray-950">
+          बहुत आसान है
+        </h3>
+        <div class="w-20 h-1 bg-brand-red rounded-full mt-2 mx-auto sm:mx-0"></div>
+      </div>
+
+      <!-- 4 Steps Flow Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+        
+        <!-- Step 1 -->
+        <div class="bg-[#FFFDF7] p-5 rounded-2xl border border-amber-200/80 hover:border-amber-400 transition-all hover:shadow-md relative group">
+          <div class="flex items-center justify-between mb-4">
+            <span class="w-8 h-8 rounded-full bg-amber-400 text-gray-900 font-black text-sm flex items-center justify-center">1</span>
+            <div class="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center text-gray-800 text-lg">
+              <i class="fa-brands fa-whatsapp text-green-600"></i>
+            </div>
+          </div>
+          <h4 class="font-bold text-gray-900 text-lg mb-1">Book करें</h4>
+          <p class="text-xs text-gray-600 font-medium leading-relaxed">
+            WhatsApp से संपर्क करें और अपना स्लॉट बुक करें।
+          </p>
+          <!-- Arrow Indicator for Desktop -->
+          <div class="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 text-gray-300 font-bold z-10">
+            <i class="fa-solid fa-arrow-right text-amber-500"></i>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="bg-[#FFFDF7] p-5 rounded-2xl border border-amber-200/80 hover:border-amber-400 transition-all hover:shadow-md relative group">
+          <div class="flex items-center justify-between mb-4">
+            <span class="w-8 h-8 rounded-full bg-amber-400 text-gray-900 font-black text-sm flex items-center justify-center">2</span>
+            <div class="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center text-gray-800 text-lg">
+              <i class="fa-solid fa-store text-amber-700"></i>
+            </div>
+          </div>
+          <h4 class="font-bold text-gray-900 text-lg mb-1">Shoot</h4>
+          <p class="text-xs text-gray-600 font-medium leading-relaxed">
+            हम आपकी दुकान पर आकर वीडियो शूट करेंगे।
+          </p>
+          <div class="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 text-gray-300 font-bold z-10">
+            <i class="fa-solid fa-arrow-right text-amber-500"></i>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="bg-[#FFFDF7] p-5 rounded-2xl border border-amber-200/80 hover:border-amber-400 transition-all hover:shadow-md relative group">
+          <div class="flex items-center justify-between mb-4">
+            <span class="w-8 h-8 rounded-full bg-amber-400 text-gray-900 font-black text-sm flex items-center justify-center">3</span>
+            <div class="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center text-gray-800 text-lg">
+              <i class="fa-solid fa-scissors text-purple-700"></i>
+            </div>
+          </div>
+          <h4 class="font-bold text-gray-900 text-lg mb-1">Edit</h4>
+          <p class="text-xs text-gray-600 font-medium leading-relaxed">
+            Professional तरीके से वीडियो एडिटिंग होगी।
+          </p>
+          <div class="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 text-gray-300 font-bold z-10">
+            <i class="fa-solid fa-arrow-right text-amber-500"></i>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="bg-[#FFFDF7] p-5 rounded-2xl border border-amber-200/80 hover:border-amber-400 transition-all hover:shadow-md relative group">
+          <div class="flex items-center justify-between mb-4">
+            <span class="w-8 h-8 rounded-full bg-amber-400 text-gray-900 font-black text-sm flex items-center justify-center">4</span>
+            <div class="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center text-gray-800 text-lg">
+              <i class="fa-solid fa-users text-blue-600"></i>
+            </div>
+          </div>
+          <h4 class="font-bold text-gray-900 text-lg mb-1">Collaborate</h4>
+          <p class="text-xs text-gray-600 font-medium leading-relaxed">
+            15 दिनों तक हमारे पेज पर आपकी Shop का प्रमोशन।
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Why Choose Us Bottom Banner with Red Themed Silhouette -->
+  <footer id="contact" class="relative bg-gradient-to-b from-[#b30d0d] via-[#940808] to-[#6d0303] text-white pt-14 pb-12 overflow-hidden">
+    
+    <!-- Decorative curved top wave edge -->
+    <div class="absolute -top-1 left-0 right-0 h-8 bg-[#FFFDF6]" style="clip-path: ellipse(55% 100% at 50% 0%);"></div>
+
+    <!-- Background Silhouette / Sunset Skyline overlay -->
+    <div class="absolute inset-0 opacity-15 mix-blend-overlay pointer-events-none bg-repeat-x bg-bottom" style="background-image: url('https://images.unsplash.com/photo-1519501025264-65ba15a82390?q=80&w=1200&auto=format&fit=crop');"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <!-- Top Pill -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/30 backdrop-blur-md text-xs font-semibold text-amber-300 border border-white/10 mb-4">
+        <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+        <span>Why Choose Us?</span>
+      </div>
+
+      <!-- Footer Heading -->
+      <h3 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white mb-10 leading-tight">
+        क्यों चुनें<br/>
+        <span class="text-amber-300">Aapna Phephana Official?</span>
+      </h3>
+
+      <!-- 4 Core Pillars Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 pt-4 border-t border-white/15">
+        
+        <!-- Pillar 1 -->
+        <div class="text-center sm:text-left flex flex-col sm:flex-row items-center sm:items-start gap-3">
+          <div class="w-12 h-12 rounded-2xl bg-amber-400 text-gray-950 flex items-center justify-center text-xl flex-shrink-0 shadow-md">
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <div>
+            <h5 class="font-bold text-sm sm:text-base text-white">Local Audience</h5>
+            <p class="text-xs text-amber-200/90 font-medium mt-0.5">का भरोसा</p>
+          </div>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="text-center sm:text-left flex flex-col sm:flex-row items-center sm:items-start gap-3">
+          <div class="w-12 h-12 rounded-2xl bg-amber-400 text-gray-950 flex items-center justify-center text-xl flex-shrink-0 shadow-md">
+            <i class="fa-solid fa-users-viewfinder"></i>
+          </div>
+          <div>
+            <h5 class="font-bold text-sm sm:text-base text-white">Real & Organic</h5>
+            <p class="text-xs text-amber-200/90 font-medium mt-0.5">Promotion</p>
+          </div>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="text-center sm:text-left flex flex-col sm:flex-row items-center sm:items-start gap-3">
+          <div class="w-12 h-12 rounded-2xl bg-amber-400 text-gray-950 flex items-center justify-center text-xl flex-shrink-0 shadow-md">
+            <i class="fa-solid fa-chart-line"></i>
+          </div>
+          <div>
+            <h5 class="font-bold text-sm sm:text-base text-white">Affordable</h5>
+            <p class="text-xs text-amber-200/90 font-medium mt-0.5">Pricing (₹1,000)</p>
+          </div>
+        </div>
+
+        <!-- Pillar 4 -->
+        <div class="text-center sm:text-left flex flex-col sm:flex-row items-center sm:items-start gap-3">
+          <div class="w-12 h-12 rounded-2xl bg-amber-400 text-gray-950 flex items-center justify-center text-xl flex-shrink-0 shadow-md">
+            <i class="fa-solid fa-heart"></i>
+          </div>
+          <div>
+            <h5 class="font-bold text-sm sm:text-base text-white">आपके Business</h5>
+            <p class="text-xs text-amber-200/90 font-medium mt-0.5">की Growth हमारी Priority</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Dedicated Instagram Sample Banner at Bottom -->
+      <div class="mt-10 bg-black/40 backdrop-blur-md border border-white/15 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
+        <div class="text-center md:text-left">
+          <span class="inline-block bg-amber-400 text-black text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full mb-2">
+            Watch Our Work
+          </span>
+          <h4 class="text-2xl sm:text-3xl font-black text-white">हमारे पिछले Sample Videos देखना चाहते हैं?</h4>
+          <p class="text-gray-300 text-sm mt-1">हमारे Instagram प्रोफ़ाइल पर जाकर हाल ही में शूट की गई रील्स और दुकानों के प्रचार वीडियो देखें।</p>
+        </div>
+        <a href="https://www.instagram.com/_aapna_phephana_?dlrf=MXNob3NjcmNydWJsbQ==" 
+           target="_blank"
+           id="bottomInstagramSampleBtn"
+           class="flex-shrink-0 bg-gradient-to-r from-amber-500 via-rose-500 to-purple-600 hover:scale-105 active:scale-95 text-white font-extrabold px-8 py-4 rounded-2xl shadow-xl flex items-center gap-3 transition-all">
+          <i class="fa-brands fa-instagram text-2xl"></i>
+          <span>Instagram पर Samples देखें</span>
+          <i class="fa-solid fa-arrow-right text-sm"></i>
+        </a>
+      </div>
+
+      <!-- Contact Details & Direct Connect Box -->
+      <div class="mt-8 pt-8 border-t border-white/10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        
+        <!-- Contact 1: Sahil Khan -->
+        <div class="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl p-4 flex items-center justify-between gap-3">
+          <div class="flex items-center gap-3">
+            <div class="w-11 h-11 rounded-xl bg-amber-400 text-black flex items-center justify-center text-lg flex-shrink-0">
+              <i class="fa-solid fa-user-tie"></i>
+            </div>
+            <div>
+              <p class="text-xs text-amber-200 font-semibold">Sahil Khan</p>
+              <a href="tel:+918233091296" class="font-bold text-white text-sm hover:text-amber-300 transition-colors">+91 82330 91296</a>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <a href="tel:+918233091296" class="w-9 h-9 rounded-lg bg-white/20 hover:bg-white/30 flex items-center justify-center text-white text-sm transition-colors" title="Call Sahil">
+              <i class="fa-solid fa-phone"></i>
+            </a>
+            <a href="https://wa.me/918233091296?text=Hello%20Sahil%20Bhai,%20Aapna%20Phephana%20par%20shop%20promotion%20ke%20liye%20baat%20karni%20hai" target="_blank" class="w-9 h-9 rounded-lg bg-green-500 hover:bg-green-600 flex items-center justify-center text-white text-sm transition-colors" title="WhatsApp Sahil">
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Contact 2: Javed Khan -->
+        <div class="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl p-4 flex items-center justify-between gap-3">
+          <div class="flex items-center gap-3">
+            <div class="w-11 h-11 rounded-xl bg-amber-400 text-black flex items-center justify-center text-lg flex-shrink-0">
+              <i class="fa-solid fa-user-tie"></i>
+            </div>
+            <div>
+              <p class="text-xs text-amber-200 font-semibold">Javed Khan</p>
+              <a href="tel:+918306132320" class="font-bold text-white text-sm hover:text-amber-300 transition-colors">+91 83061 32320</a>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <a href="tel:+918306132320" class="w-9 h-9 rounded-lg bg-white/20 hover:bg-white/30 flex items-center justify-center text-white text-sm transition-colors" title="Call Javed">
+              <i class="fa-solid fa-phone"></i>
+            </a>
+            <a href="https://wa.me/918306132320?text=Hello%20Javed%20Bhai,%20Aapna%20Phephana%20par%20shop%20promotion%20ke%20liye%20baat%20karni%20hai" target="_blank" class="w-9 h-9 rounded-lg bg-green-500 hover:bg-green-600 flex items-center justify-center text-white text-sm transition-colors" title="WhatsApp Javed">
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Contact 3: Official Instagram Profile -->
+        <a href="https://www.instagram.com/_aapna_phephana_?dlrf=MXNob3NjcmNydWJsbQ==" target="_blank" class="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl p-4 flex items-center gap-3 hover:bg-white/15 transition-all sm:col-span-2 lg:col-span-1">
+          <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-amber-400 via-rose-500 to-purple-600 text-white flex items-center justify-center text-xl flex-shrink-0">
+            <i class="fa-brands fa-instagram"></i>
+          </div>
+          <div class="text-left truncate">
+            <p class="text-xs text-amber-200 font-semibold">Official Instagram Handle</p>
+            <p class="font-bold text-white text-sm truncate">@_aapna_phephana_</p>
+          </div>
+          <i class="fa-solid fa-arrow-up-right-from-square text-xs text-gray-300 ml-auto"></i>
+        </a>
+
+      </div>
+
+      <!-- Copyright & Bottom Credit -->
+      <div class="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-300 gap-3">
+        <p>© 2026 Aapna Phephana Official. All rights reserved.</p>
+        <div class="flex items-center gap-4 text-base">
+          <a href="https://www.instagram.com/_aapna_phephana_?dlrf=MXNob3NjcmNydWJsbQ==" target="_blank" class="hover:text-amber-300 transition-colors" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://wa.me/918233091296" target="_blank" class="hover:text-amber-300 transition-colors" title="WhatsApp Sahil Khan"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="https://wa.me/918306132320" target="_blank" class="hover:text-amber-300 transition-colors" title="WhatsApp Javed Khan"><i class="fa-solid fa-comment-dots"></i></a>
+          <a href="https://rzp.io/rzp/ak4CoCa" target="_blank" class="hover:text-amber-300 transition-colors" title="Online Payment"><i class="fa-solid fa-credit-card"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    // Mobile navigation toggling logic
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuIcon = document.getElementById('menuIcon');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', () => {
+        const isExpanded = !mobileMenu.classList.contains('hidden');
+        if (isExpanded) {
+          mobileMenu.classList.add('hidden');
+          menuIcon.classList.remove('fa-xmark');
+          menuIcon.classList.add('fa-bars');
+        } else {
+          mobileMenu.classList.remove('hidden');
+          menuIcon.classList.remove('fa-bars');
+          menuIcon.classList.add('fa-xmark');
+        }
+      });
+    }
+
+    // Close mobile menu on clicking any link
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuIcon.classList.remove('fa-xmark');
+        menuIcon.classList.add('fa-bars');
+      });
+    });
+  </script>
+</body>
+</html>
